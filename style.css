@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+}
+
+/* Main section with background */
+.main {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 128, 0, 0.6)),
+                url('backgroundIMG/origbig.png') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+}
+
+/* Logo Section */
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 5px limegreen);
+}
+
+/* ✅ Pixelated Logo Text */
+.logo {
+    color: limegreen;
+    font-size: 18px;
+    font-family: 'Press Start 2P', monospace;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px rgba(0, 255, 0, 0.6);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: pixelated;
+}
+
+/* Menu */
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li {
+    margin: 0 25px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+    color: limegreen;
+}
+
+/* Intro text */
+.intro-text {
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.5);
+}
+
+.intro-text h1 {
+    color: limegreen;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.intro-text p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Login/Register Box */
+.form-box {
+    width: 380px;
+    height: 420px;
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid limegreen;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Buttons */
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #0f0a;
+    border-radius: 30px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+#btn {
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: limegreen;
+    border-radius: 30px;
+    transition: 0.5s;
+    left: 0;
+}
+
+/* Input fields */
+.input-group {
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 5px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid limegreen;
+    background: transparent;
+    color: #fff;
+    outline: none;
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: limegreen;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: #000;
+    font-weight: bold;
+}
+
+#login {
+    left: 50px;
+}
+
+#register {
+    left: 450px;
+}
+
+.login-message {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* Section below main area */
+.content-section {
+    width: 100%;
+    background: #0a0a0a;
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+    border-top: 2px solid limegreen;
+}
+
+.section-container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.section-container h2 {
+    color: limegreen;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', monospace;
+}
+
+.section-container p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 60px;
+}
+
+/* Feature boxes */
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature-box {
+    background: rgba(0, 255, 0, 0.05);
+    border: 1px solid limegreen;
+    border-radius: 10px;
+    padding: 25px;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.feature-box h3 {
+    color: limegreen;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.feature-box p {
+    font-size: 13px;
+}
+
+/* Feature images */
+.feature-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid limegreen;
+}
+
+/* WAD Controls image */
+.controls-img {
+    width: 80%;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+/* Controls text */
+.controls {
+    text-align: center;
+    color: limegreen;
+    font-size: 18px;
+    line-height: 2;
+    margin-top: 10px;
+}

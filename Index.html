@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Climber</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <img src="Images/Logo.png" alt="Mountain Climber Logo" class="logo-img">
+                <h2 class="logo">Mountain Climber</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Intro Text -->
+        <div class="intro-text">
+            <h1>Mountain Climber</h1>
+            <p>
+                Venture through a haunting 2D world where every step may mean death in the Mountain. 
+                Fight ancient foes, uncover hidden paths, and forge your destiny in a 
+                pixelated realm where courage meets shadow.
+            </p>
+        </div>
+
+        <!-- Login/Register Form -->
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="login" class="input-group">
+                <input type="email" id="login-email" class="input-field" placeholder="Email" required>
+                <input type="password" id="login-password" class="input-field" placeholder="Enter Password" required>
+                <button type="button" class="submit-btn" onclick="handleLogin()">Log In</button>
+                <p id="login-message" class="login-message"></p>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="register" class="input-group">
+                <input type="text" id="register-username" class="input-field" placeholder="Username" required>
+                <input type="email" id="register-email" class="input-field" placeholder="Email" required>
+                <input type="password" id="register-password" class="input-field" placeholder="Enter Password" required>
+                <button type="button" class="submit-btn" onclick="handleRegister()">Register</button>
+                <p id="register-message" class="login-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Section Below -->
+    <section class="content-section">
+        <div class="section-container">
+            <h2>About the Game</h2>
+            <p>
+                Mountain Climber is a pixel art 2D platformer where atmosphere and challenge intertwine. 
+                Explore cursed lands, uncover lore, and face off against creatures drawn from the depths of 
+                forgotten worlds. Each level offers unique layout, hidden secrets, and immersive atmosphere.
+            </p>
+
+            <div class="features">
+                <!-- COMBAT -->
+                <div class="feature-box">
+                    <h3>⚔️ Combat</h3>
+                    <img src="Images/Combat.png" alt="Combat Preview" class="feature-img">
+                    <p>Engage enemies using skill-based combat inspired by classic side-scrollers.</p>
+                </div>
+
+                <!-- HOW TO PLAY -->
+                <div class="feature-box">
+                    <h3>🎮 How to Play</h3>
+                    <img src="Images/WAD.png" alt="WAD Controls" class="feature-img controls-img">
+                    <p class="controls">
+                        <strong>W</strong> – Jump<br>
+                        <strong>A</strong> – Move Left<br>
+                        <strong>D</strong> – Move Right
+                    </p>
+                </div>
+
+                <!-- ATMOSPHERE -->
+                <div class="feature-box">
+                    <h3>🎵 Atmosphere</h3>
+                    <img src="IMAGES/MusicIMG.png" alt="Atmospheric Music" class="feature-img">
+                    <p>Lose yourself in haunting music and a world full of mystery and emotion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Switching forms
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
+
+        // registration
+        function handleRegister() {
+            const username = document.getElementById("register-username").value.trim();
+            const email = document.getElementById("register-email").value.trim();
+            const password = document.getElementById("register-password").value.trim();
+            const message = document.getElementById("register-message");
+
+            if (!username || !email || !password) {
+                message.textContent = "❌ Please fill out all fields.";
+                message.style.color = "red";
+                return;
+            }
+
+            const userData = { username, email, password };
+            localStorage.setItem("user", JSON.stringify(userData));
+
+            message.textContent = "✅ Registration Successful! You can now log in.";
+            message.style.color = "limegreen";
+
+            setTimeout(() => {
+                login();
+            }, 2000);
+        }
+
+        // login
+        function handleLogin() {
+            const email = document.getElementById("login-email").value.trim();
+            const password = document.getElementById("login-password").value.trim();
+            const message = document.getElementById("login-message");
+            const storedUser = JSON.parse(localStorage.getItem("user"));
+
+            if (!storedUser) {
+                message.textContent = "❌ No registered user found. Please register first.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (email === storedUser.email && password === storedUser.password) {
+                localStorage.setItem("loggedIn", "true");
+                message.textContent = "✅ Login Successful! Redirecting...";
+                message.style.color = "limegreen";
+
+                setTimeout(() => {
+                    window.location.href = "Game.html";
+                }, 1000);
+            } else {
+                message.textContent = "❌ Incorrect email or password.";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
